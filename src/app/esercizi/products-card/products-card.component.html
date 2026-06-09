@@ -1,0 +1,26 @@
+<div class="product-card">
+
+  <!-- 1. Property Binding: src collegato a imageUrl -->
+  <img [src]="imageUrl" alt="Immagine prodotto" />
+
+  <!-- 2. Interpolazione: nome, brand, prezzo finale, tag, disponibilità -->
+  <h2>{{ name }}</h2>
+  <p class="brand">{{ brand }}</p>
+  <p class="price">Prezzo: € {{ finalPrice() }}</p>
+  <p class="tags">Tag: {{ tags.join(', ') }}</p>
+  <p class="availability">
+    Disponibile: {{ available ? 'Sì' : 'No' }}
+  </p>
+
+  <!-- 3. Event Binding: click chiama compra() -->
+  <button (click)="compra()" [disabled]="!available">
+    Acquista
+  </button>
+
+  <!-- 4. Two-Way Binding: modifica name in tempo reale -->
+  <div class="edit-name">
+    <label>Modifica nome:</label>
+    <input [(ngModel)]="name" placeholder="Nome prodotto" />
+  </div>
+
+</div>
