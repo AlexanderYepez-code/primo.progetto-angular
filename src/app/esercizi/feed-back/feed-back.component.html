@@ -1,0 +1,10 @@
+    <div>
+      <h2>Lascia una valutazione</h2>
+      <app-star-rating
+        [massimo]="5"
+        (votoSelezionato)="onVoto($event)"
+      />
+      @if (voto !== null) {
+        <p>Hai dato un voto di {{ voto }} su 5</p>
+      }
+    </div>

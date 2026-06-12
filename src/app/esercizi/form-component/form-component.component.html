@@ -1,0 +1,46 @@
+<h1>Registration Form</h1>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Nome:</label>
+    <input name="nome" [(ngModel)]="utente.nome" required minlength="3" />
+    @if (myForm.controls["nome"]?.invalid && myForm.controls["nome"]?.touched) {
+      <p style="color: red">
+        Il nome è obbligatorio e deve avere almeno 3 caratteri.
+      </p>
+    }
+  </div>
+
+  <div>
+    <label>Email:</label>
+    <input name="email" [(ngModel)]="utente.email" required email />
+    @if (
+      myForm.controls["email"]?.invalid && myForm.controls["email"]?.touched
+    ) {
+      <p >Inserisci un'email valida.</p>
+    }
+  </div>
+
+  <div>
+    <label>Età:</label>
+    <input
+      name="eta"
+      type="number"
+      [(ngModel)]="utente.eta"
+      required
+      min="18"
+    />
+    @if (myForm.controls["eta"]?.invalid && myForm.controls["eta"]?.touched) {
+      <p >
+        L'età è obbligatoria e devi avere almeno 18 anni.
+      </p>
+    }
+  </div>
+
+  <button type="submit" [disabled]="myForm.invalid">Registrati</button>
+</form>
+
+@if (submitted) {
+  <p>
+    Dati inviati: {{ utente.nome }} ({{ utente.email }}) - Età: {{ utente.eta }}
+  </p>
+}

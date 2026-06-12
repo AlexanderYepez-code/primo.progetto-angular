@@ -1,0 +1,9 @@
+    <div>
+      @for (stella of stelle(); track $index) {
+        <span
+          (click)="votoSelezionato.emit($index + 1)"
+          style="font-size: 32px; cursor: pointer;">
+          ⭐
+        </span>
+      }
+    </div>

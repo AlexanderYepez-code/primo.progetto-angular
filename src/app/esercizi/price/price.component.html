@@ -1,0 +1,11 @@
+
+<h1>Calcolo prezzo lordo</h1>
+<div>
+  <input type="number" (input)="aggiornaPrezzoNetto($event)" />
+  <p>Prezzo netto: {{ prezzoNetto() }} €</p>
+  <p>Aliquota IVA: {{ aliquotaIva() }}%</p>
+  <h3>Totale:</h3>
+  <p>
+    <b>Prezzo lordo: {{ prezzoLordo() }} €</b>
+  </p>
+</div>

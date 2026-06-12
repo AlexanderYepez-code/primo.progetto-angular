@@ -1,0 +1,10 @@
+<div>
+  <h2>Lista Prodotti</h2>
+  @for (prodotto of prodotti; track prodotto.nome) {
+    <app-product-card
+      [nome]="prodotto.nome"
+      [prezzo]="prodotto.prezzo"
+      [disponibile]="prodotto.disponibile"
+    />
+  }
+</div>

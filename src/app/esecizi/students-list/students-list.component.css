@@ -1,0 +1,45 @@
+.container {
+  font-family: sans-serif;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.name {
+  width: 80px;
+  font-weight: bold;
+}
+
+.arrow {
+  color: #999;
+}
+
+.badge {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.ottimo       { background: #d4edda; color: #155724; }
+.buono        { background: #cce5ff; color: #004085; }
+.sufficiente  { background: #fff3cd; color: #856404; }
+.insufficiente{ background: #f8d7da; color: #721c24; }
+
+.absent {
+  font-size: 0.8rem;
+  color: #999;
+  margin-left: 4px;
+}

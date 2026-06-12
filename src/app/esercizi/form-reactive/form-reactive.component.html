@@ -1,0 +1,44 @@
+<h1>Form di Contatto</h1>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" style="margin-bottom: 100px;">
+
+  <div>
+    <label>Oggetto:</label>
+    <input formControlName="oggetto"/>
+    @if (contactForm.controls['oggetto'].invalid && contactForm.controls['oggetto'].touched) {
+      <p style="color: red;">L'oggetto è obbligatorio.</p>
+    }
+  </div>
+
+  <div>
+    <label>Messaggio:</label>
+    <textarea formControlName="messaggio"></textarea>
+    <p>{{ contactForm.controls['messaggio'].value?.length || 0 }}/10 caratteri</p>
+    @if (contactForm.controls['messaggio'].invalid && contactForm.controls['messaggio'].touched) {
+      <p style="color: red;">Il messaggio è obbligatorio e deve avere almeno 10 caratteri.</p>
+    }
+  </div>
+
+  <div>
+    <label>Urgenza:</label>
+    <select formControlName="urgenza">
+      <option value="">-- Seleziona --</option>
+      <option value="bassa">Bassa</option>
+      <option value="media">Media</option>
+      <option value="alta">Alta</option>
+    </select>
+    @if (contactForm.controls['urgenza'].invalid && contactForm.controls['urgenza'].touched) {
+      <p style="color: red;">Seleziona un livello di urgenza.</p>
+    }
+  </div>
+
+  <button type="submit" [disabled]="contactForm.invalid">Invia</button>
+
+</form>
+
+@if (submitted) {
+  <div style="border: 1px solid black; padding: 10px; margin-top: 20px;">
+    <p><strong>Oggetto:</strong> {{ contactForm.value.oggetto }}</p>
+    <p><strong>Messaggio:</strong> {{ contactForm.value.messaggio }}</p>
+    <p><strong>Urgenza:</strong> {{ contactForm.value.urgenza }}</p>
+  </div>
+}
